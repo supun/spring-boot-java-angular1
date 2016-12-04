@@ -1,0 +1,75 @@
+<div class="row marginalign"> 
+                                <h6 class="col-sm-11 form-control-label text-left">SECTION 1 : Initial Risk Assessment</h6>  
+								
+								<div class="col-sm-1 pull-right" >
+									<a href="javascript:void(0);"  data-toggle="modal" data-target="#nearmismodal"><i class="fa fa-question-circle pull-right" aria-hidden="true" style="color:blue;font-size: 20px;"></i></a>
+										<!--onclick="showTableContent();"-->
+								</div>
+                     </div> 
+					 
+					  <div class="form-group row">
+                        <div class="col-sm-12" >
+                            <table  class="table table-hover table-striped table-bordered" cellspacing="0">
+                                <tbody>
+                                    <tr style="background: yellow !important">
+                                        <td class="colorgrid" rowspan="2"><b>Hazard No</b></td>
+                                        <td class="colorgrid" rowspan="2" style="width:20% !important"><b>Activity</b></td>
+                                        <td class="colorgrid" rowspan="2"><b>Hazard</b></td>
+                                        <td class="colorgrid" rowspan="2"><b>Effects of Hazards</b></td>
+                                        <td class="colorgrid" rowspan="2"><b>Existing Control Measures and Safe Guards</b></td>
+                                        <td class="colorgrid" colspan="3"><b> <center>Initial Risk </center></b></td>
+                                        <td class="colorgrid" rowspan="2"></td>
+										<td class="colorgrid" rowspan="2">Control Measures</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="colorgrid"><b>Frequency (F)</b></td>
+                                        <td class="colorgrid"><b>Consequences (C)</b></td>
+                                        <td class="colorgrid"><b>Risk Level (F)*(C)</b></td>
+                                    </tr>
+                                    <tr data-ng-repeat="hazardItem in riskActivitList track by $index">
+                                        <td>1</td>
+                                        <td width="5% !important"><input type="text" class="form-control"></td>
+                                        <td><select id="fa_he_td8" class="form-control">
+                                                <option>N/A</option>
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                            </select></td>
+                                        <td><select id="fa_he_td6" class="form-control">
+                                                <option>N/A</option>
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                            </select></td>
+                                        <td>                                                
+                                            <input type="text" class="form-control">
+                                        </td>
+                                        <td>
+                                            <select id="fa_he_td111" class="form-control"  onchange="calculateRisk('fa_he_td122', 'fa_he_td111', 'fa_safety')">
+                                                <option>N/A</option>
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <select id="fa_he_td122" class="form-control"  onchange="calculateRisk('fa_he_td122', 'fa_he_td111', 'fa_safety')">
+                                                <option>N/A</option>
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                            </select>
+                                        </td>
+                                        <td id="fa_safety" >N/A</td>
+
+                                        <td width="8% !important" ><button type="button" class="btn btn-success label btn btn-success label-rounded" data-ng-click="addHazardItem($event);"><i class="fa fa-plus"></i></button>    
+    <button type="button" class="btn btn-danger label btn btn-danger label-rounded" data-ng-click="removeHazardItem(hazardItem);"><i class="fa fa-minus"></i></button></td>
+	<td><button type="button" class="btn btn-success btn-sm m-r-10 m-b-10 button pull-right" data-ng-click="addHazardItem($event);">Add</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>

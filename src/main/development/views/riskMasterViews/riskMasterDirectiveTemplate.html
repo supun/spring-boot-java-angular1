@@ -1,0 +1,160 @@
+<div class="row tab_bg br" style="padding:2px;">
+<label class="col-sm-3 form-control-label text-left" >Form No : KLQSMS-Y-C-05</label>     
+                 
+                                <h6 class="col-sm-6 form-control-label text-center fontweight">Risk Assessment</h6> 
+      <label class="col-sm-3 form-control-label text-right">SR No : EI/ELSA/2016/001</label>  
+                    </div>
+<!--------------------------------------------------------------->
+<div class="row">
+ <div class="col-xs-12 col-xl-8" >
+ <div class="panel panel-success">
+ <div class="panel-body">
+<div class="form-group row">
+
+</div>
+      <div class="form-group row">
+                <label class="col-sm-4 form-control-label">Name of the Captain</label>  
+                 <label class="col-sm-6 form-control-label">John Mec</label>   
+                 
+</div>
+
+			
+		 <div class="form-group row">
+                                <label class="col-sm-4 form-control-label">Date of Assessment:</label>  
+                                <label class="col-sm-6 form-control-label" >16-Oct-2016</label>
+                            </div>
+							
+							<div class="form-group row">
+                                <label class="col-sm-4 form-control-label" >Category:</label>
+                                <div ng-controller="riskCategoryDropDownDirectiveController">
+					  	
+					  	         <div risk-category-drop-down-directive></div>
+                      
+					             </div>
+                            </div>
+							
+							 <div class="form-group row">
+                                <label class="col-sm-4 form-control-label" >Task:</label>
+                                <div class="col-sm-6">        
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+                           
+                            <div class="form-group row">
+                                <label class="col-sm-4 form-control-label">Location:</label>  
+                                <div ng-controller="riskLocationDropDownDirectiveController">
+					  	
+					  	         <div risk-location-drop-down-directive></div>
+                      
+					             </div>
+                            </div>
+                       
+                            <div class="form-group row">
+                                <label class="col-sm-4 form-control-label">Permit to Work:</label>  
+                                <div class="col-sm-6">        
+                                    <select id="fa_he_td1" class="form-control">
+                                        <option></option>
+                                        <option></option>
+                                        <option></option>
+                                        <option></option>
+                                        <option></option>
+                                        <option></option>
+                                    </select>
+                                </div>
+                            </div>
+                           
+                            <div class="form-group row">
+                                <label class="col-sm-4 form-control-label">Equipment Used:</label>  
+                                <div class="col-sm-6">        
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group row">
+                                <label class="col-sm-4 form-control-label">Person(s) doing work:</label>  
+                                <div ng-controller="riskPersonDropDownDirectiveController">
+					  	
+					  	         <div risk-person-drop-down-directive></div>
+                      
+					             </div>
+                            </div>
+                         
+                            <div class="form-group row">
+                                <label class="col-sm-4 form-control-label">Head of the Department:</label>  
+                                <div ng-controller="riskHodDropDownDirectiveController">
+					  	
+					  	         <div risk-hod-drop-down-directive></div>
+                      
+					             </div>
+                            </div>
+                         
+                            <div class="form-group row">
+                                <label class="col-sm-4 form-control-label">Total No of Hazards Identified:</label>  
+                                <div class="col-sm-6">        
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+
+	</div>
+</div>	
+</div>
+
+<!-- Communication part ---------------------------------------------------------------------------------------------------------------------------->
+
+<div class="col-xs-12 col-xl-4 pull-right commpadd">
+<div class="card">
+    <div class="card-header danger-color-dark white-text commbtnbg">
+      <label>&nbsp;&nbsp; <i class="fa fa-comments-o fa-2x" style="color:white"></i>  &nbsp;&nbsp;&nbsp; Communication Report</label>
+    </div>
+    <div class="card-block">
+	    <div class="m-b-6">
+                                <div class="activity-widget-5">
+                                    <div class="row">
+                                        <div class="col-xs-12 bs-media">
+                                            <div class="media">
+                                                <a class="media-left media-middle">
+                                                    <img class="media-object img-circle h-40 w-40" alt="/assets/faces/kslm-logo.png" src="assets/faces/kslm-logo.png">
+                                                </a>
+                                                <div class="media-body">
+                                                    <p> <b>Vessel Manager :</b> I do not see any discussion about cargo damage in last port on your vessel . Request pls confirm if all crew were briefed about the precautions .</p>
+                                                    <p class="text-muted">14-Oct-2016 9:00</p>
+                                                </div>
+                                              </div>
+                                            <div class="media">
+                                                <a class="media-left media-middle">
+                                                    <img class="media-object img-circle h-40 w-40" alt="/assets/faces/kslm-logo.png" src="assets/faces/kslm-logo.png">
+                                                </a>
+                                                <div class="media-body">
+
+                                                    <p><b> Master :</b> Confirming we discussed this matter , my apologize for the oversight I have updated the minutes </p>
+                                                    <p class="text-muted">14-Oct-2016 10:00 </p>
+                                                </div>
+                                            </div>
+                                            <div class="media">
+                                                <a class="media-left media-middle">
+                                                    <img class="media-object img-circle h-40 w-40" alt="/assets/faces/kslm-logo.png" src="assets/faces/kslm-logo.png">
+                                                </a>
+                                                <div class="media-body">
+                                                    <p><b>Vessel Manager :</b> Thanks and well noted . I will review and enter my office comments </p>
+                                                    <p class="text-muted">14-Oct-2016 10:30 </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+    </div>
+
+ <div class="input-group">
+        <div class="form-group  has-feedback">
+            <input type="text" class="form-control commbtn" id="inputSuccess5">
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+        </div>
+        <span class="input-group-btn">
+            <button class="btn btn-success" type="button">Send</button>
+        </span>
+  </div>	
+</div>
+</div>
+
+</div>
