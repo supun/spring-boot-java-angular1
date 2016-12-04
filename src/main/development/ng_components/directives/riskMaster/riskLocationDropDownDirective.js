@@ -1,7 +1,7 @@
 //riskLocationDropDownDirective.js
 
 angular.module('customDirectives')
-	.controller('riskLocationDropDownDirectiveController', ['$scope', function($scope) {
+	.controller('riskLocationDropDownDirectiveController', ['$scope','$rootScope', function($scope,$rootScope) {
 
 		$scope.locationList = [
                               {code:"",name:""},
@@ -32,7 +32,7 @@ angular.module('customDirectives')
 		
 		$scope.update = function (){
 			
-			//alert($scope.selectedCategory);
+			$rootScope.riskLocation  = $scope.selectedLocation;
 		}
 	}])
 	.directive('riskLocationDropDownDirective', function() {

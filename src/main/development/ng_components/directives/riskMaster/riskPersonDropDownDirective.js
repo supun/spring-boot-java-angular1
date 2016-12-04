@@ -1,7 +1,7 @@
 //riskPersonDropDownDirective.js
 
 angular.module('customDirectives')
-	.controller('riskPersonDropDownDirectiveController', ['$scope', function($scope) {
+	.controller('riskPersonDropDownDirectiveController', ['$scope','$rootScope', function($scope,$rootScope) {
 
 		$scope.personList = [
                               {code:"",name:""},
@@ -19,7 +19,7 @@ angular.module('customDirectives')
 		
 		$scope.update = function (){
 			
-			//alert($scope.selectedCategory);
+			$rootScope.riskPerson  = $scope.selectedPerson;
 		}
 	}])
 	.directive('riskPersonDropDownDirective', function() {

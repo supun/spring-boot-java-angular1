@@ -79,5 +79,6 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter
 		registry.addViewController( "/riskControlDirectiveTemplate" ).setViewName( "forward:/views/riskControlDirectiveTemplate.html" );
 		registry.addViewController( "/fileUploadDirectiveTemplate" ).setViewName( "forward:/views/fileUploadDirectiveTemplate.html" );
 		registry.addViewController( "/riskApproveDirectiveTemplate" ).setViewName( "forward:/views/riskApproveDirectiveTemplate.html" );
+		registry.addViewController( "/jobCompletionDirectiveTemplate" ).setViewName( "forward:/views/jobCompletionDirectiveTemplate.html" );
 	}
 }
