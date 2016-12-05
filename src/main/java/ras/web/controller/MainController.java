@@ -1,4 +1,4 @@
-package demoapp.controllers;
+package ras.web.controller;
 
 import org.springframework.stereotype.Controller;
 

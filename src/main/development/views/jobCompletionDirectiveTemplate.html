@@ -13,7 +13,7 @@
                         </div>
                         <label class="col-sm-2 form-control-label">Time of Completion:</label>  
                         <div class="input-group date col-sm-3" id="reportdate1" data-provide="datepicker">
-                                            <input type="text" class="form-control" data-ng-model="riskMaster.jobcompleteddate">
+                                            <input type="text" class="form-control" data-ng-model="riskContentItem.riskMaster.jobcompleteddate">
                                             <div class="input-group-addon">
                                                 <i class="fa fa-th"></i>
                                             </div>
@@ -34,11 +34,11 @@
                     <div id="idreject3" class="form-group row">
                         <label class="col-sm-2 form-control-label" >Comments:</label>
                         <div class="col-sm-6" >
-                            <textarea class="form-control" id="exampleTextarea" rows="2" cols="5" data-ng-model="riskMaster.jobComments"></textarea>
+                            <textarea class="form-control" id="exampleTextarea" rows="2" cols="5" data-ng-model="riskContentItem.riskMaster.jobComments"></textarea>
                         </div>  
                     </div>
 					 <div>
 					
                                 <button type="button" style="width: 8% !important" class="btn btn-info btn-sm m-r-10 m-b-10 button pull-right" data-ng-click="submitData();">Send</button>
-                             <button type="button" style="width: 8% !important"  class="btn btn-success btn-sm m-r-10 m-b-10 button pull-right" data-ng-click="saveData('riskmaster',riskMaster);">Save</button>
+                             <button type="button" style="width: 8% !important"  class="btn btn-success btn-sm m-r-10 m-b-10 button pull-right" data-ng-click="saveData('riskContentItem',riskContentItem);">Save</button>
                         </div>

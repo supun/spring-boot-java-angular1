@@ -1,4 +1,4 @@
-package demoapp.models;
+package ras.models;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

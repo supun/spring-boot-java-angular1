@@ -1,4 +1,4 @@
-var injectParams = ['$rootScope','$scope','$http','$store'];  // define nav bar dependencies
+var injectParams = ['$rootScope','$scope','$http','$store'];  // define main controlller dependencies
 var MainController = function ($rootScope,$scope,$http,$store) {
  	
 	$scope.riskCategory ="";
@@ -9,10 +9,27 @@ var MainController = function ($rootScope,$scope,$http,$store) {
 	$scope.headOfDept = "";
 	$scope.noOfHazards = "";
 	
+	// riskContentItem is used to save / update the db
+	if($store.get('riskContentItem') === undefined  || $store.get('riskContentItem') === null  ){
+		$rootScope.riskContentItem = {
+				'riskMaster' : {
+					'riskCategory':'',
+					 'riskLocation' :'',
+					 'equipment':'',
+					 'riskPerson':'',
+					 'hod':'',
+					 'noOfHazards':''
+					 
+				}
+		};  
+	}else {
+		$rootScope.riskContentItem = $store.get('riskContentItem');
+	}
+	/*
 	$rootScope.riskMaster = $store.get('riskmaster') === undefined ? {}:$store.get('riskmaster') ;
 	//$scope.riskActivitList = [];
 	
-	
+	*/
 	
 	$scope.submitData = function (){
 		$scope.riskLocation = $rootScope.riskLocation;
@@ -27,7 +44,7 @@ var MainController = function ($rootScope,$scope,$http,$store) {
 	$scope.saveData = function(key,value){
 		$store.remove(key);  			   // remove existing object with the same key
 	    $store.bind($scope, key, value);
-	    $rootScope.riskMaster = $store.get(key);
+	    $rootScope.riskContentItem = $store.get(key);
 		//$store.
 	};
   };

@@ -1,26 +1,17 @@
 //riskHoDDropDownDirective.js
 
 angular.module('customDirectives')
-	.controller('riskHodDropDownDirectiveController', ['$scope', '$rootScope', function($scope,$rootScope) {
+	.controller('riskHodDropDownDirectiveController', ['$scope', '$rootScope','riskHodDropDownService', function($scope,$rootScope,riskHodDropDownService) {
 
-		$scope.hodList = [
-                              {code:"",name:""},
-		                      {code:"A",name:"MASTER"},
-		                      {code:"B",name:"COFF"},
-		                      {code:"C",name:"ADD. CH OFF"},
-		                      {code:"D",name:"2 OFF"},
-		                      {code:"E",name:"3OFF"},
-		                      {code:"F",name:"4 OFF"},
-		                      {code:"G",name:"C/E"}
-                               ];
-
-
+		$scope.hodList = riskHodDropDownService.getRiskHodList();
+		
 		$scope.selectedHoD = $scope.hodList[0];
 		
-		$scope.update = function (){
+		$scope.updateHod = function (){
 			
-			$rootScope.riskHod  = $scope.selectedHoD;
-		}
+			$rootScope.riskContentItem.riskMaster.riskHod  = $scope.selectedHoD.trim();
+		};
+		
 	}])
 	.directive('riskHodDropDownDirective', function() {
   return {

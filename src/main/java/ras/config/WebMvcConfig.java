@@ -1,4 +1,6 @@
-package demoapp.configs;
+package ras.config;
+
+import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,6 +11,8 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.DependsOn;
 import org.springframework.core.env.Environment;
+import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
@@ -17,7 +21,10 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import org.springframework.web.servlet.view.JstlView;
 import org.springframework.web.servlet.view.UrlBasedViewResolver;
 
-import demoapp.util.WebConstants;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import ras.util.WebConstants;
 
 @Configuration
 @EnableWebMvc
@@ -80,5 +87,16 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter
 		registry.addViewController( "/fileUploadDirectiveTemplate" ).setViewName( "forward:/views/fileUploadDirectiveTemplate.html" );
 		registry.addViewController( "/riskApproveDirectiveTemplate" ).setViewName( "forward:/views/riskApproveDirectiveTemplate.html" );
 		registry.addViewController( "/jobCompletionDirectiveTemplate" ).setViewName( "forward:/views/jobCompletionDirectiveTemplate.html" );
+	}
+
+	@Override
+	public void configureMessageConverters( List<HttpMessageConverter<?>> converters )
+	{
+		final MappingJackson2HttpMessageConverter converter = new MappingJackson2HttpMessageConverter();
+		final ObjectMapper objectMapper = new ObjectMapper();
+		objectMapper.setSerializationInclusion( JsonInclude.Include.USE_DEFAULTS );
+		converter.setObjectMapper( objectMapper );
+		converters.add( converter );
+		super.configureMessageConverters( converters );
 	}
 }

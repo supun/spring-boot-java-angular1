@@ -1,31 +1,14 @@
 //riskCategoryDropDownDirective.js
 
 angular.module('customDirectives')
-	.controller('riskCategoryDropDownDirectiveController', ['$scope','$rootScope', function($scope,$rootScope) {
+	.controller('riskCategoryDropDownDirectiveController', ['$scope','$rootScope','riskCategoryDropDownService', function($scope,$rootScope,riskCategoryDropDownService) {
 
-		$scope.categoryList = [
-                              {code:"",name:""},
-		                      {code:"A",name:"Engine Room and Machinery Activities"},
-		                      {code:"B",name:"Deck Maintenance"},
-		                      {code:"C",name:"Bridge and Navigation"},
-		                      {code:"D",name:"Containers- Cargo and Ballast Operations"},
-		                      {code:"E",name:"Oil Tankers – Cargo and Ballast Operations"},
-		                      {code:"F",name:"Chemical Tankers - Cargo and Ballast Operations"},
-		                      {code:"G",name:"Mooring Operations"},
-		                      {code:"H",name:"Galley and Cooking Operations"},
-		                      {code:"I",name:"Non-routine tasks"},
-		                      {code:"J",name:"Takeover of Vessel into Management"},
-		                      {code:"K",name:"Office Tasks"},
-		                      {code:"L",name:"Management of Occupational Safety and Health"},
-		                      {code:"M",name:"Critical Equipment"},
-		                      {code:"N",name:"Management of change"}
-                               ];
+		$scope.categoryList = riskCategoryDropDownService.getRiskCategoryDropDownItems();
 		
-		$scope.selectedCategory = $scope.categoryList[0];
+		$scope.selectedCategory =  $scope.categoryList[0];
 		
-		$scope.update = function (){
-			
-			$rootScope.riskCategory  = $scope.selectedCategory;
+		$scope.updateCategory = function (){
+			$rootScope.riskContentItem.riskMaster.riskCategory  = $scope.selectedCategory.trim();
 		}
 	}])
 	.directive('riskCategoryDropDownDirective', function() {

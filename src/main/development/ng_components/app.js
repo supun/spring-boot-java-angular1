@@ -1,7 +1,7 @@
 
 (function () {
 
-    var app = angular.module('rootApp', ['ngRoute','controllersModule','customDirectives','localStorage']);
+    var app = angular.module('rootApp', ['ngRoute','controllersModule','serviceModule','customDirectives','localStorage']);
     // configure routing for the application
     // add constants.js file to load the constants destinationsController
     
