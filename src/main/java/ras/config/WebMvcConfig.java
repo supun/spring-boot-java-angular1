@@ -21,14 +21,14 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import org.springframework.web.servlet.view.JstlView;
 import org.springframework.web.servlet.view.UrlBasedViewResolver;
 
+import ras.util.WebConstants;
+
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import ras.util.WebConstants;
-
 @Configuration
 @EnableWebMvc
-@ComponentScan({ "demoapp" })
+@ComponentScan({ "ras" })
 public class WebMvcConfig extends WebMvcConfigurerAdapter
 {
 	private static final Logger LOGGER = LoggerFactory.getLogger( WebMvcConfig.class );
@@ -99,4 +99,5 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter
 		converters.add( converter );
 		super.configureMessageConverters( converters );
 	}
+
 }
