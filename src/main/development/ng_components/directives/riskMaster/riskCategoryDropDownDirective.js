@@ -8,7 +8,7 @@ angular.module('customDirectives')
 		$scope.selectedCategory =  $scope.categoryList[0];
 		
 		$scope.updateCategory = function (){
-			$rootScope.riskContentItem.riskMaster.riskCategory  = $scope.selectedCategory.trim();
+			$rootScope.riskCategory  = $scope.selectedCategory.trim();
 		}
 	}])
 	.directive('riskCategoryDropDownDirective', function() {

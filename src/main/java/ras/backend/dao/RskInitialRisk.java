@@ -19,7 +19,7 @@ public class RskInitialRisk
 	private static final long serialVersionUID = 1L;
 	@Id
 	@Column(name = "hazardno")
-	private Long hazardno;
+	private int hazardno;
 
 	private String activity;
 
@@ -41,12 +41,12 @@ public class RskInitialRisk
 	@Column(name = "rskid")
 	private String riskId;
 
-	public long getHazardno()
+	public int getHazardno()
 	{
 		return hazardno;
 	}
 
-	public void setHazardno( Long hazardno )
+	public void setHazardno( int hazardno )
 	{
 		this.hazardno = hazardno;
 	}

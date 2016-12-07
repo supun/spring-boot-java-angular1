@@ -2,15 +2,16 @@
                         <div class="file-uploads">
                             <div class="btn btn-info  no-border"> 
                                 <span class="fa fa-folder-open icon"></span> 
-                                <input type="file" id="fileuploadnearmiss" name="files[]" multiple="" data-input="false" data-buttonText="Your label here."> 
+                                <input type="file" id="fileuploadnearmiss"  name="files" multiple="" data-input="false" data-buttonText="Your label here." onchange="angular.element(this).scope().selectFile(this.files)">
+                                <!-- <input type="file" name="file" onchange="angular.element(this).scope().uploadFile(this.files)"/> -->
                             </div>
                         </div>
                     </div>
 					<div>
                        
                             
-                            <button type="button" style="width: 8% !important" class="btn btn-info btn-sm m-r-10 m-b-10 button pull-right" onclick="myFunction4()">Send</button>
-							<button type="button" style="width: 8% !important"  class="btn btn-success btn-sm m-r-10 m-b-10 button pull-right" onclick="myFunction9()">Save</button>
+                            <button type="button" style="width: 8% !important" class="btn btn-info btn-sm m-r-10 m-b-10 button pull-right" >Send</button>
+							<button type="button" style="width: 8% !important"  class="btn btn-success btn-sm m-r-10 m-b-10 button pull-right" data-ng-click="uploadFile();">Save</button>
                             <button type="button" style="width: 8% !important;display:none" id="approvebuttononhigh" class="btn btn-info btn-sm m-r-10 m-b-10 button" onclick="myFunction3()">Approve</button>
                         
                     </div>

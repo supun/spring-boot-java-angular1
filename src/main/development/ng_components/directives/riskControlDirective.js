@@ -3,29 +3,33 @@
 angular.module('customDirectives')
 	.controller('riskControlDirectiveController', ['$scope','$rootScope', function($scope,$rootScope) {
 	
-		var hazardItem = {
-		}
-		$rootScope.riskControlActionList = [{
-				controlMeasures: '',
-				frequency:'',
-				consequence:'',
-				riskLevel:''
+		var controlItem = {
+		};
+		$rootScope.riskContentItem.controlRiskList = [{
+			hazardNo:'',
+			controlType:'',
+			controlMeasure:'',
+			frequency: '',
+			consequence:'',
+			riskLevel:'',
+			targetDate:'',
+			rskId:''
 		}];
 		
 		// add new hazardItem
-		$scope.addHazardItem = function($event){
-			$rootScope.riskControlActionList.push(hazardItem);
+		$scope.addControlItem = function($event){
+			$rootScope.riskContentItem.controlRiskList.push(controlItem);
 		};
 		
 		// remove Item from list
-		$scope.removeHazardItem = function(hazardItem){
-			 var index = $rootScope.riskControlActionList.indexOf(hazardItem);
-				 if($rootScope.riskControlActionList.length > 1){
-					 $rootScope.riskControlActionList.splice(index, 1);     
+		$scope.removeControlItem = function(controlItem){
+			 var index = $rootScope.riskContentItem.controlRiskList.indexOf(controlItem);
+				 if($rootScope.riskContentItem.controlRiskList.length > 1){
+					 $rootScope.riskContentItem.controlRiskList.splice(index, 1);     
 				 }
 		};
 		
-		$scope.calculateRisk = function(controlAction){
+		$scope.calculateRiskControl = function(controlAction){
 			if(controlAction.frequency != undefined && controlAction.consequence != undefined){
 			if(controlAction.frequency!=='N/A' && controlAction.frequency!=='' && controlAction.consequence!=='N/A' && controlAction.consequence!==''){
 				controlAction.riskLevel = parseInt(controlAction.frequency) * parseInt(controlAction.consequence);

@@ -2,8 +2,9 @@ package ras.backend.repository;
 
 import java.util.List;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
 import ras.backend.dao.LocationMaster;
@@ -11,7 +12,7 @@ import ras.backend.dao.LocationMaster;
 /*public interface CityRepository extends JpaRepository<City,String>,JpaSpecificationExecutor<City>
  {
  }*/
-public interface ILocationMasterRepository extends CrudRepository<LocationMaster, Long>
+public interface ILocationMasterRepository extends JpaRepository<LocationMaster, Long>, JpaSpecificationExecutor<LocationMaster>
 {
 	@Query("SELECT l FROM LocationMaster l WHERE l.activeStatus = :activeStatus")
 	List<LocationMaster> findActiveLocationList( @Param("activeStatus") String activeStatus );

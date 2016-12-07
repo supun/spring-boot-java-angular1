@@ -6,14 +6,14 @@
                     <div class="form-group row" id="idreject1" >
                         <label class="col-sm-2 form-control-label" >Time of Commencement:</label>
                         <div class="input-group date col-sm-3" id="reportdate1" data-provide="datepicker">
-                                            <input type="text" class="form-control" name="jobcommencedate" >
+                                            <input type="text" class="form-control" name="jobcommencedate" data-ng-model="riskContentItem.riskMaster.jobCommenceDate" >
                                             <div class="input-group-addon">
                                                 <i class="fa fa-th"></i>
                                             </div>
                         </div>
                         <label class="col-sm-2 form-control-label">Time of Completion:</label>  
-                        <div class="input-group date col-sm-3" id="reportdate1" data-provide="datepicker">
-                                            <input type="text" class="form-control" data-ng-model="riskContentItem.riskMaster.jobcompleteddate">
+                        <div class="input-group date col-sm-3" id="reportdate2" data-provide="datepicker">
+                                            <input type="text" class="form-control" name="jobCompleeteddate" data-ng-model="riskContentItem.riskMaster.jobCompletedDate">
                                             <div class="input-group-addon">
                                                 <i class="fa fa-th"></i>
                                             </div>
@@ -40,5 +40,5 @@
 					 <div>
 					
                                 <button type="button" style="width: 8% !important" class="btn btn-info btn-sm m-r-10 m-b-10 button pull-right" data-ng-click="submitData();">Send</button>
-                             <button type="button" style="width: 8% !important"  class="btn btn-success btn-sm m-r-10 m-b-10 button pull-right" data-ng-click="saveData('riskContentItem',riskContentItem);">Save</button>
+                             <button type="button" style="width: 8% !important"  class="btn btn-success btn-sm m-r-10 m-b-10 button pull-right">Save</button>
                         </div>

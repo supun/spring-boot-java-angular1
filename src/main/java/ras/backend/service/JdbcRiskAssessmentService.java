@@ -5,12 +5,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 
+import ras.backend.repository.IRiskControlItemRepository;
 import ras.backend.repository.IRiskMasterRepository;
 import ras.backend.repository.IRskInitialRiskRepository;
 import ras.util.DAOMapper;
 import ras.web.domain.AbstractContent;
 import ras.web.domain.Response;
 import ras.web.domain.RiskContentItem;
+import ras.web.domain.RiskControlItem;
 import ras.web.domain.RiskMaster;
 import ras.web.domain.RskInitialRisk;
 
@@ -23,6 +25,9 @@ public class JdbcRiskAssessmentService implements IRiskAssessmentService
 
 	@Autowired
 	IRskInitialRiskRepository rskInitialRiskRepository;
+
+	@Autowired
+	IRiskControlItemRepository riskControlItemRepository;
 
 	@Transactional
 	@Override
@@ -59,13 +64,26 @@ public class JdbcRiskAssessmentService implements IRiskAssessmentService
 				ras.backend.dao.RiskMaster riskMasterDao = DAOMapper.mapToriskMasterDao( riskMaster );
 				// save riskMater to db
 				riskMasterRepository.save( riskMasterDao );
-
+				ras.backend.dao.RskInitialRisk rskIntRskDao = new ras.backend.dao.RskInitialRisk();
 				if ( !CollectionUtils.isEmpty( riskContentItem.getInitialRskList() ) )
 				{
 					for ( RskInitialRisk rskIntRsk : riskContentItem.getInitialRskList() )
 					{
-						ras.backend.dao.RskInitialRisk rskIntRskDao = DAOMapper.mapToRskIntRskDao( rskIntRsk );
+						rskIntRsk.setRiskId( riskMasterDao.getRskId() );
+						rskIntRskDao = DAOMapper.mapToRskIntRskDao( rskIntRsk );
 						rskInitialRiskRepository.save( rskIntRskDao );
+					}
+				}
+
+				if ( !CollectionUtils.isEmpty( riskContentItem.getControlRiskList() ) )
+				{
+					for ( RiskControlItem riskControlItem : riskContentItem.getControlRiskList() )
+					{
+						riskControlItem.setRskId( riskMasterDao.getRskId() );
+						riskControlItem.setHazardNo( rskIntRskDao.getHazardno() );
+						ras.backend.dao.RiskControlItem riskControlItemDao = DAOMapper.mapToControlRskIntControlRskDao( riskControlItem );
+						riskControlItemRepository.save( riskControlItemDao );
+
 					}
 				}
 				// Operation success

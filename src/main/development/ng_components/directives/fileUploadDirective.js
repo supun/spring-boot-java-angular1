@@ -1,26 +1,25 @@
 //assesmentDirective.js
 // custom directive for loading packages
 angular.module('customDirectives')
-	.controller('fileUploadDirectiveController', ['$scope', function($scope) {
+	.controller('fileUploadDirectiveController', ['$scope','$http', function($scope,$http) {
 	
-		var hazardItem = {
-				activity:'Test'
-		}
-		$scope.riskActivitList = [{
-				activity:'Test'
-		}];
-		
-		// add new hazardItem
-		$scope.addHazardItem = function($event){
-			$scope.riskActivitList.push(hazardItem);
+		$scope.selectFile = function (files){
+			$scope.files = files;
 		};
 		
-		// remove Item from list
-		$scope.removeHazardItem = function(hazardItem){
-			 var index = $scope.riskActivitList.indexOf(hazardItem);
-				 if($scope.riskActivitList.length > 1){
-						  $scope.riskActivitList.splice(index, 1);     
-				 }
+		$scope.uploadFile = function() {
+		  
+			var fd = new FormData();
+		    fd.append('type',"MI");
+	        fd.append('file', $scope.files[0]);
+	         $http.post("/v1/uploadFile", fd, {
+	            transformRequest: angular.identity,
+	            headers: {'Content-Type': undefined}
+	        })
+	        .success(function(){
+	        })
+	        .error(function(){
+	        });
 		};
 		
 	}])

@@ -9,6 +9,7 @@ public class RiskContentItem extends AbstractContent
 
 	private RiskMaster riskMaster;
 	private List<RskInitialRisk> initialRskList = new ArrayList<>();
+	private List<RiskControlItem> controlRiskList = new ArrayList<>();
 
 	public RiskMaster getRiskMaster()
 	{
@@ -28,6 +29,16 @@ public class RiskContentItem extends AbstractContent
 	public void setInitialRskList( List<RskInitialRisk> initialRskList )
 	{
 		this.initialRskList = initialRskList;
+	}
+
+	public List<RiskControlItem> getControlRiskList()
+	{
+		return controlRiskList;
+	}
+
+	public void setControlRiskList( List<RiskControlItem> controlRiskList )
+	{
+		this.controlRiskList = controlRiskList;
 	}
 
 }

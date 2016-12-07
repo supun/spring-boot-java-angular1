@@ -1,14 +1,16 @@
 //riskLocationDropDownDirective.js
 
 angular.module('customDirectives')
-	.controller('riskLocationDropDownDirectiveController', ['$scope','$rootScope','riskLocationDropDownService', function($scope,$rootScope,riskLocationDropDownService) {
+	.controller('riskLocationDropDownDirectiveController', ['$scope','$rootScope','$http','riskLocationDropDownService', function($scope,$rootScope,$http,riskLocationDropDownService) {
 		
-		$scope.locationList = riskLocationDropDownService.getRiskLocationDropDownItems();
+		riskLocationDropDownService.getRiskLocationDropDownItems($http,function(data){
+			$scope.locationList = data;
+			$scope.selectedLocation = data[0];
+		});
 		
-		$scope.selectedLocation = $scope.locationList[0];
-
+	
 		$scope.updateLocation = function (){
-			$rootScope.riskContentItem.riskMaster.riskLocation = $scope.selectedLocation.trim();
+			$rootScope.riskContentItem.riskMaster.locationCode = $scope.selectedLocation.trim();
 		};
 		
 	}])

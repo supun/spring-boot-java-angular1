@@ -20,10 +20,10 @@
                                         <td class="colorgrid"><b>Consequences (C)</b></td>
                                         <td class="colorgrid"><b>Risk Level (F)*(C)</b></td>
                                     </tr>
-                                    <tr data-ng-repeat="controlAction in riskControlActionList track by $index">
+                                    <tr data-ng-repeat="controlAction in riskContentItem.controlRiskList track by $index">
                                         <td>1</td>
                                         <td>                                                
-                                            <input type="text" class="form-control" data-ng-model="controlAction.controlMeasures">
+                                            <input type="text" class="form-control" data-ng-model="controlAction.controlMeasure">
                                         </td>
 
                                         <td>
@@ -36,7 +36,7 @@
                                             </select>
                                         </td>
                                         <td>
-                                            <select id="fa_he_td4" class="form-control"  data-ng-model="controlAction.consequence" data-ng-change="calculateRisk(controlAction);">
+                                            <select id="fa_he_td4" class="form-control"  data-ng-model="controlAction.consequence" data-ng-change="calculateRiskControl(controlAction);">
                                                 <option>N/A</option>
                                                 <option>1</option>
                                                 <option>2</option>
@@ -45,9 +45,9 @@
                                         </td>
                                         <td id="fa_health")>{{controlAction.riskLevel}}</td>
                                   <td width="8% !important" >
-										<button type="button" class="btn btn-success label btn btn-success label-rounded" data-ng-click="addHazardItem($event);"><i class="fa fa-plus"></i></button>    
-    <button type="button" class="btn btn-danger label btn btn-danger label-rounded" data-ng-click="removeHazardItem(hazardItem);"><i class="fa fa-minus"></i></button></button></td>
-    <td><button type="button" class="btn btn-success btn-sm m-r-10 m-b-10 button pull-right" data-ng-click="addHazardItem($event);">Add</button></td>
+										<button type="button" class="btn btn-success label btn btn-success label-rounded"><i class="fa fa-plus"></i></button>    
+    <button type="button" class="btn btn-danger label btn btn-danger label-rounded" ><i class="fa fa-minus"></i></button></button></td>
+    <td><button type="button" class="btn btn-success btn-sm m-r-10 m-b-10 button pull-right" >Add</button></td>
     
                                     </tr>
                                 </center>

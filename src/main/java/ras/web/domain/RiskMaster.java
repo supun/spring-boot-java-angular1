@@ -34,7 +34,9 @@ public class RiskMaster extends AbstractContent
 	private String submittedBy;
 	private Date submitDate;
 	private Date crDate;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = ApplicationConstants.DATE_FORMAT)
 	private Date jobCommenceDate;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = ApplicationConstants.DATE_FORMAT)
 	private Date jobCompletedDate;
 	private String isAdequate;
 	private String jobComments;

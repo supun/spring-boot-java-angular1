@@ -26,17 +26,17 @@
                                         <td class="colorgrid"><b>Consequences (C)</b></td>
                                         <td class="colorgrid"><b>Risk Level (F)*(C)</b></td>
                                     </tr>
-                                    <tr data-ng-repeat="hazardItem in riskActivitList track by $index">
+                                    <tr data-ng-repeat="hazardItem in riskContentItem.initialRskList track by $index">
                                         <td>1</td>
                                         <td width="5% !important"><input type="text" class="form-control" data-ng-model="hazardItem.activity"></td>
-                                        <td><select id="fa_he_td8" class="form-control" data-ng-model="hazardItem.hazardNo">
+                                        <td><select id="fa_he_td8" class="form-control" data-ng-model="hazardItem.hazardno">
                                                 <option>N/A</option>
                                                 <option>1</option>
                                                 <option>2</option>
                                                 <option>3</option>
                                                 <option>4</option>
                                             </select></td>
-                                        <td><select id="fa_he_td6" class="form-control" data-ng-model="hazardItem.effectsOfHazards">
+                                        <td><select id="fa_he_td6" class="form-control" data-ng-model="hazardItem.effectOfHazard">
                                                 <option>N/A</option>
                                                 <option>1</option>
                                                 <option>2</option>
@@ -44,7 +44,7 @@
                                                 <option>4</option>
                                             </select></td>
                                         <td>                                                
-                                            <input type="text" class="form-control" data-ng-model="hazardItem.controlMeasures">
+                                            <input type="text" class="form-control" data-ng-model="hazardItem.controlMeasure">
                                         </td>
                                         <td>
                                             <select id="fa_he_td111" class="form-control"  data-ng-model="hazardItem.frequency" data-ng-change="calculateRisk(hazardItem);">
@@ -63,11 +63,11 @@
                                                 <option>3</option>
                                             </select>
                                         </td>
-                                        <td id="fa_safety">{{hazardItem.riskLevel}}</td>
+                                        <td id="fa_safety">{{hazardItem.risk}}</td>
 
-                                        <td width="8% !important" ><button type="button" class="btn btn-success label btn btn-success label-rounded" data-ng-click="addHazardItem($event);"><i class="fa fa-plus"></i></button>    
-    <button type="button" class="btn btn-danger label btn btn-danger label-rounded" data-ng-click="removeHazardItem(hazardItem);"><i class="fa fa-minus"></i></button></td>
-	<td><button type="button" class="btn btn-success btn-sm m-r-10 m-b-10 button pull-right" data-ng-click="addHazardItem($event);">Add</button></td>
+                                        <td width="8% !important" ><button type="button" class="btn btn-success label btn btn-success label-rounded" ><i class="fa fa-plus"></i></button>    
+    <button type="button" class="btn btn-danger label btn btn-danger label-rounded" ><i class="fa fa-minus"></i></button></td>
+	<td><button type="button" class="btn btn-success btn-sm m-r-10 m-b-10 button pull-right">Add</button></td>
                                     </tr>
                                 </tbody>
                             </table>

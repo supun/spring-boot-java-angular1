@@ -4,9 +4,9 @@ angular.module('serviceModule')
 .service( "riskLocationDropDownService", function(){
 
 	// get riskCategoryDropDownItems 
-	this.getRiskLocationDropDownItems = function(){
+	this.getRiskLocationDropDownItems = function($http,callback){
 
-		return [
+		/*return [
                               {code:"",name:""},
 		                      {code:"A",name:"Bridge"},
 		                      {code:"B",name:"CCR/ ECR/ Ship's Office"},
@@ -29,7 +29,16 @@ angular.module('serviceModule')
 		                      {code:"S",name:"High place/ mast/ crane etc."},
 		                      {code:"T",name:"Aloft/ ship side"},
 		                      {code:"U",name:"Other"}
-                               ];
+                               ];*/
+		$http.get("/getActiveLocations").
+		 success(function (data, status, headers, config) {
+             //return data.data;
+			 callback(data.data);
+         }).
+         error(function (data, status, headers, config) {
+             //alert("An error occurred during the AJAX request");
+         });
+		
 	};
 	  
 });

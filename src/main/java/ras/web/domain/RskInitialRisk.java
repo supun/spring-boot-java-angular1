@@ -3,8 +3,7 @@ package ras.web.domain;
 public class RskInitialRisk
 {
 
-	private static final long serialVersionUID = 1L;
-	private Long hazardno;
+	private int hazardno;
 
 	private String activity;
 
@@ -20,12 +19,12 @@ public class RskInitialRisk
 
 	private String riskId;
 
-	public long getHazardno()
+	public int getHazardno()
 	{
 		return hazardno;
 	}
 
-	public void setHazardno( Long hazardno )
+	public void setHazardno( int hazardno )
 	{
 		this.hazardno = hazardno;
 	}

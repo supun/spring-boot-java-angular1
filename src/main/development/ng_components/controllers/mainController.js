@@ -1,5 +1,5 @@
-var injectParams = ['$rootScope','$scope','$http','$store'];  // define main controlller dependencies
-var MainController = function ($rootScope,$scope,$http,$store) {
+var injectParams = ['$rootScope','$scope','$http','$store','riskContentItemService'];  // define main controlller dependencies
+var MainController = function ($rootScope,$scope,$http,$store,riskContentItemService) {
  	
 	$scope.riskCategory ="";
 	$scope.task ="";
@@ -12,15 +12,44 @@ var MainController = function ($rootScope,$scope,$http,$store) {
 	// riskContentItem is used to save / update the db
 	if($store.get('riskContentItem') === undefined  || $store.get('riskContentItem') === null  ){
 		$rootScope.riskContentItem = {
-				'riskMaster' : {
-					'riskCategory':'',
-					 'riskLocation' :'',
-					 'equipment':'',
-					 'riskPerson':'',
-					 'hod':'',
-					 'noOfHazards':''
-					 
-				}
+				
+					  "riskMaster":{
+										"rskId":"EI/ELSA/2016/100",
+										"formNumber":"KLQSMS-Y-C-05",
+										"revNumber":"",
+										"revDate":"",
+										"vesselCode":"",
+										"assessmentDate":"",
+										"category":"",
+										"task":"",
+										"locationCode":"",
+										"permits":"",
+										"eqpUsed":"",
+										"personRank":"",
+										"headRank":"",
+										"hazardCount":"1",
+										"companyComment":"",
+										"approverName":"",
+										"approverRank":"",
+										"approvedDate":"",
+										"reviewerName":"",
+										"reviewerRank":"1",
+										"reviewedDate":"",					
+										"submittedBy":"",
+									    "submitDate":"",				
+									    "crDate":"",
+									    "jobCommenceDate":"",				
+									    "jobCompletedDate":"",
+									    "isAdequate":"",
+									    "jobComments":"",
+									    "isTemplate":"",
+									    "curRankId":"",
+									    "activeStatus":""
+					  }
+					  ,
+									"initialRskList":[],
+									"controlRiskList":[]
+					
 		};  
 	}else {
 		$rootScope.riskContentItem = $store.get('riskContentItem');
@@ -32,12 +61,22 @@ var MainController = function ($rootScope,$scope,$http,$store) {
 	*/
 	
 	$scope.submitData = function (){
-		$scope.riskLocation = $rootScope.riskLocation;
+		/*$scope.riskLocation = $rootScope.riskLocation;
 		$scope.riskCategory = $rootScope.riskCategory;
 		$scope.person = $rootScope.riskPerson;
 		$scope.headOfDept = $rootScope.riskHod;
 		$scope.riskActivitList = $rootScope.riskActivitList;
 		console.log($rootScope.riskMaster);
+		
+		var dataObject = {
+				
+		}*/
+		var jobStartedDate = $( "input[name='jobcommencedate']" ).val();
+		var jobCompletedDate = $( "input[name='jobCompleeteddate']" ).val();
+		$rootScope.riskContentItem.riskMaster.jobCommenceDate = (new Date(jobStartedDate)).toISOString().slice(0,10);;
+		$rootScope.riskContentItem.riskMaster.jobCompletedDate = (new Date(jobCompletedDate)).toISOString().slice(0,10);;
+		riskContentItemService.saveRiskContentItem($http,$rootScope);
+		
 	}
 	
 	// save data to localStorage 
