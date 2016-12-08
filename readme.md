@@ -1,15 +1,7 @@
-## Use JPA + Hibernate + MySQL in Spring Boot
-
+This master branch is to track all KLSM phase 1 deliverables
 ### Usage
 
-- Run the application and go on http://localhost:8080/
-- Use the following urls to invoke controllers methods and see the interactions
-  with the database:
-    * `/user/save?email=[email]&name=[name]`: create a new user with an 
-      auto-generated id and email and name as passed values.
-    * `/user/delete?id=[id]`: delete the user with the passed id.
-    * `/user/get-by-email?email=[email]`: retrieve the id for the user with the
-      passed email address.
+- Run the application and go on http://localhost:9090/ 
 
 ### Build and run
 
@@ -20,7 +12,7 @@ database connection.
 
 #### Prerequisites
 
-- Java 7
+- Java 1.8
 - Maven 3
 
 #### From terminal
